@@ -48,7 +48,37 @@ function height(tree, counter = 0) {
   return left > right ? left : right;
 }
 
-console.log(main());
-console.log(easyQuestion());
-console.log(height(easyQuestion()));
-console.log(height(main()));
+function isIt(tree) {
+  
+  if(!tree) {
+    return 'Bad tree';
+  }
+  if(!tree.parent && !tree.left && !tree.right) {
+    return false;
+  }
+
+  if(tree.left) {
+    if(tree.left.key >= tree.key) {
+      return false;
+    } else {
+      isIt(tree.left);
+    }
+  }
+
+  if(tree.right) {
+    if(tree.right.key <= tree.key) {
+      return false;
+    } else {
+      isIt(tree.right);
+    }
+  }
+
+  return true;
+}
+// console.log(main());
+// console.log(easyQuestion());
+// console.log(height(easyQuestion()));
+// console.log(height(main()));
+console.log(isIt(easyQuestion()));
+console.log(isIt(main()));
+console.log(isIt('d'));
