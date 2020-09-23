@@ -4,12 +4,19 @@ function main() {
   const BST = new BinarySearchTree();
   BST.insert(3);
   BST.insert(1);
-  BST.insert(4);
-  BST.insert(6);
-  BST.insert(9);
-  BST.insert(2);
-  BST.insert(5);
-  BST.insert(7);
+//   BST.insert(4);
+//   BST.insert(6);
+//  BST.insert(9);
+  //BST.insert(2);
+//   BST.insert(5);
+//   BST.insert(7);
+//   BST.insert(10);
+//    BST.insert(11);
+//    BST.insert(12);
+//    BST.insert(118);
+//   BST.insert(110);
+//    BST.insert(102);
+//    BST.insert(109);
 
   return BST;
 }
@@ -75,10 +82,35 @@ function isIt(tree) {
 
   return true;
 }
+// still needs work
+function thirdLargest(tree) {
+  const layers = height(tree);
+  if(layers < 2 || (layers === 2 && !tree.parent)) {
+    return 'There is only 1 node.'
+  } 
+  if(layers === 2 && tree.right && tree.left){
+    return tree.key;
+  } else if(layers === 2 && tree.parent) {
+      return tree.parent.key;
+  } else if
+
+  if(layers === 3){
+    if(!tree.left || !tree.right) {
+      return tree.key;
+    }
+  }
+
+  if (layers > 3 && tree.right) {
+    return thirdLargest(tree.right);
+  } else if (layers > 2 && tree.left) {
+      return thirdLargest(tree.left);
+  }
+}
 // console.log(main());
 // console.log(easyQuestion());
-// console.log(height(easyQuestion()));
+console.log(height(easyQuestion()));
 // console.log(height(main()));
 console.log(isIt(easyQuestion()));
 console.log(isIt(main()));
-console.log(isIt('d'));
+//console.log(isIt('d'));
+console.log(thirdLargest(main()));
